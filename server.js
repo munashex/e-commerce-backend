@@ -3,7 +3,7 @@ import cors from 'cors'
 import dotenv from 'dotenv' 
 dotenv.config()
 import path from 'path'
-import {ConnectDB} from './config/db.js'   
+import ConnectDB from './config/db.js'   
 ConnectDB()
 import seedRouter from './routes/seedRoutes.js' 
 import ProductRoute from './routes/Product.js' 
