@@ -1,8 +1,8 @@
-import mongoose from 'mongoose' 
+import mongoose from 'mongoose'
 
 export const ConnectDB = async() => {
     try {
-     const connect = await mongoose.connect(process.env.MONGO_URI) 
+     const connect = await mongoose.createConnection(process.env.MONGO_URI)
      if(connect) {
         console.log('mongodb connect') 
         return
