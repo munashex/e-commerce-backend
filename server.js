@@ -1,10 +1,8 @@
 import express from 'express' 
 import cors from 'cors' 
 import dotenv from 'dotenv' 
+import mongoose from 'mongoose'
 dotenv.config()
-import path from 'path'
-import ConnectDB from './config/db.js'   
-ConnectDB()
 import seedRouter from './routes/seedRoutes.js' 
 import ProductRoute from './routes/Product.js' 
 import userRoute from './routes/UserRoute.js' 
@@ -15,6 +13,16 @@ const app = express()
 app.use(express.json())  
 app.use(express.urlencoded({extended: true}))  
 app.use(cors()) 
+
+mongoose.connect(process.env.MONGO_URI, {
+    family:4
+})
+    .then(() => {
+        console.log('DB CONNECTED');
+    })
+    .catch(() => {
+        console.log("BAD");
+    })
 
 app.get('/api/keys/paypal', (req, res) => {
     res.send(process.env.PAYPAL_CLIENT_ID || 'sb')
