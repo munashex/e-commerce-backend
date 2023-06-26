@@ -20,8 +20,8 @@ mongoose.connect(process.env.MONGO_URI, {
     .then(() => {
         console.log('DB CONNECTED');
     })
-    .catch(() => {
-        console.log("BAD");
+    .catch((err) => {
+        console.log(err.message);
     })
 
 app.get('/api/keys/paypal', (req, res) => {
