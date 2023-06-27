@@ -14,15 +14,9 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))  
 app.use(cors()) 
 
-mongoose.connect(process.env.MONGO_URI, {
-    family:4
-})
-    .then(() => {
-        console.log('DB CONNECTED');
-    })
-    .catch((err) => {
-        console.log(err.message);
-    })
+mongoose.connect(process.env.MONGO_URI)
+.then(() => console.log('connected')) 
+.catch((err) => console.log(err))
 
 app.get('/api/keys/paypal', (req, res) => {
     res.send(process.env.PAYPAL_CLIENT_ID || 'sb')
