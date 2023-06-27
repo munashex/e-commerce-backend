@@ -1,5 +1,9 @@
 GET    http://localhost:3000/api/products/
 Content-Type: "application/json" 
+mongodb+srv://munashe:<password>@cluster0.qjoxooo.mongodb.net/?retryWrites=true&w=majority
+
+
+
 
 
 
